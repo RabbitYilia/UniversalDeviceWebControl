@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalDeviceWebControl", "UniversalDeviceWebControl\UniversalDeviceWebControl.csproj", "{580E1E38-8D93-4679-B88B-1B0AC4FECE86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{580E1E38-8D93-4679-B88B-1B0AC4FECE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{580E1E38-8D93-4679-B88B-1B0AC4FECE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{580E1E38-8D93-4679-B88B-1B0AC4FECE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{580E1E38-8D93-4679-B88B-1B0AC4FECE86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B590504-63A2-4F4C-BF13-E26F5D231A06}
+	EndGlobalSection
+EndGlobal
