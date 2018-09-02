@@ -17,6 +17,7 @@ namespace UniversalDeviceWebControl
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,8 +35,8 @@ namespace UniversalDeviceWebControl
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<WebDBContext>(options =>
-       options.UseSqlite("Data Source=web.db"));
+            services.AddDbContext<WebDBContext>(options => options.UseSqlite("Data Source=web.db"));
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -63,6 +64,7 @@ namespace UniversalDeviceWebControl
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }
