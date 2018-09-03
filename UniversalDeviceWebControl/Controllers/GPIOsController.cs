@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +23,16 @@ namespace UniversalDeviceWebControl.Controllers
         // GET: GPIOs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GPIO.ToListAsync());
+            var GPIOs = await _context.GPIO.ToListAsync();
+            foreach(GPIO gpio in GPIOs)
+            {
+                if (gpio.Type == "In")
+                {
+                    gpio.CurrentValue = int.Parse(System.IO.File.ReadAllText($"./GPIO/GPIO-{gpio.Pin}.txt"));
+                    _context.SaveChanges();
+                }
+            }
+            return View(GPIOs);
         }
 
         // GET: GPIOs/Details/5
@@ -97,6 +107,14 @@ namespace UniversalDeviceWebControl.Controllers
             {
                 try
                 {
+                    if (gPIO.Type == "In")
+                    {
+                        gPIO.CurrentValue = int.Parse(System.IO.File.ReadAllText($"./GPIO/GPIO-{gPIO.Pin}.txt"));
+                    }
+                    else
+                    {
+                        System.IO.File.WriteAllText($"./GPIO/GPIO-{gPIO.Pin}.txt", gPIO.CurrentValue.ToString());
+                    }
                     _context.Update(gPIO);
                     await _context.SaveChangesAsync();
                 }
