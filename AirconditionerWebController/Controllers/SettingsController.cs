@@ -22,7 +22,23 @@ namespace AirconditionerWebController.Controllers
         // GET: Settings
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Setting.ToListAsync());
+            Setting settings = await _context.Setting.ToListAsync();
+
+            foreach(Setting setting in settings)
+            {
+                if (setting.Key == "Current Temperature")
+                {
+                    setting.Value = File.ReadAllText($"./Settings/Current-Temp.txt");
+                }
+
+                if (setting.Key == "Current Relative humitity")
+                {
+                    setting.Value = File.ReadAllText($"./Settings/Current-humitity.txt");
+                }
+
+            }
+
+            return View(settings);
         }
 
         // GET: Settings/Details/5

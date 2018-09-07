@@ -27,6 +27,10 @@ namespace AirconditionerWebController.Data
                 });
                 _context.SaveChanges();
             }
+            else
+            {
+                File.WriteAllText($"./Settings/Current-Temp.txt", "N/A");
+            }
             if (!_context.Setting.Any(s => s.Key == "Current Relative humitity"))
             {
                 _context.Setting.Add(new Setting
@@ -38,6 +42,10 @@ namespace AirconditionerWebController.Data
                     Useage = "显示当前相对湿度，禁止修改"
                 });
                 _context.SaveChanges();
+            }
+            else
+            {
+                File.WriteAllText($"./Settings/Current-humitity.txt", "N/A");
             }
             if (!_context.Setting.Any(s => s.Key == "Current PowerState"))
             {
@@ -51,6 +59,10 @@ namespace AirconditionerWebController.Data
                 });
                 _context.SaveChanges();
             }
+            else
+            {
+                File.WriteAllText($"./Settings/Current-PowerState.txt", "OFF");
+            }
             if (!_context.Setting.Any(s => s.Key == "Current Mode"))
             {
                 _context.Setting.Add(new Setting
@@ -62,6 +74,10 @@ namespace AirconditionerWebController.Data
                     Useage = "修改当前状态以启用对应模式，Wind为送风，Cool为制冷，Heat为加热"
                 });
                 _context.SaveChanges();
+            }
+            else
+            {
+                File.WriteAllText($"./Settings/Current-Mode.txt", "Wind");
             }
             if (!_context.Setting.Any(s => s.Key == "Wind Speed"))
             {
@@ -75,6 +91,10 @@ namespace AirconditionerWebController.Data
                 });
                 _context.SaveChanges();
             }
+            else
+            {
+                File.WriteAllText($"./Settings/Wind-Speed.txt", "3");
+            }
             if (!_context.Setting.Any(s => s.Key == "Wind Vertical Direction"))
             {
                 _context.Setting.Add(new Setting
@@ -86,6 +106,10 @@ namespace AirconditionerWebController.Data
                     Useage = "垂直风向，0为自动，输入数值固定角度，范围从1-90，单位：度"
                 });
                 _context.SaveChanges();
+            }
+            else
+            {
+                File.WriteAllText($"./Settings/Wind-VDirection.txt", "0");
             }
             if (!_context.Setting.Any(s => s.Key == "Wind Horizontal Direction"))
             {
@@ -99,6 +123,10 @@ namespace AirconditionerWebController.Data
                 });
                 _context.SaveChanges();
             }
+            else
+            {
+                File.WriteAllText($"./Settings/Wind-HDirection.txt", "0");
+            }
             if (!_context.Setting.Any(s => s.Key == "Target Temperature"))
             {
                 _context.Setting.Add(new Setting
@@ -110,6 +138,10 @@ namespace AirconditionerWebController.Data
                     Useage = "修改以设置目标温度，单位：摄氏度"
                 });
                 _context.SaveChanges();
+            }
+            else
+            {
+                File.WriteAllText($"./Settings/Target-Temperature.txt", "27");
             }
         }
     }
